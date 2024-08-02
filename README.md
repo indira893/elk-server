@@ -152,7 +152,14 @@ No VM guests are running outdated hypervisor (qemu) binaries on this host.
 
 ```
 
+Change Kibana configuration
+```sh
+sudo vim /etc/kibana/kibana.yml
+```
 
+```yml
+server.host: "0.0.0.0"
+```
 
 Start and enable Kibana:
 ```sh
@@ -184,27 +191,6 @@ Start and enable Filebeat:
 ```sh
 sudo systemctl enable filebeat
 sudo systemctl start filebeat
-```
-
-### 7. Configuration
-#### a. Elasticsearch
-Edit the Elasticsearch configuration file:
-```sh
-sudo nano /etc/elasticsearch/elasticsearch.yml
-```
-Set the `network.host` to allow connections from your local network:
-```yaml
-network.host: 0.0.0.0
-```
-
-#### b. Kibana
-Edit the Kibana configuration file:
-```sh
-sudo nano /etc/kibana/kibana.yml
-```
-Set the server host:
-```yaml
-server.host: "0.0.0.0"
 ```
 
 #### c. Logstash
