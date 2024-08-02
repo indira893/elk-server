@@ -215,7 +215,7 @@ sudo systemctl enable filebeat
 sudo systemctl start filebeat
 ```
 
-#### Configure Logstash
+### Configure Logstash
 Edit the Logstash configuration file:
 ```sh
 sudo nano /etc/logstash/logstash.yml
