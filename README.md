@@ -80,10 +80,50 @@ Scanning linux images...
 Running kernel seems to be up-to-date.
 ```
 
+Change Elasticsearch configuration
+
+```sh
+vim /etc/elasticsearch/elasticsearch.yml
+```
+
+- Remove comment marks from the following lines
+```yaml
+cluster.name: indira-cluster-elk
+network.host: 0.0.0.0
+http.port: 9200
+```
+
 Start and enable Elasticsearch:
 ```sh
 sudo systemctl enable elasticsearch
 sudo systemctl start elasticsearch
+```
+
+Open a browser to display Elasticsearch (First log request will use superuser credentials => check security related information)
+
+If required (for work on localhost), remove security constraints
+```sh
+sudo vim /etc/elasticsearch/elasticsearch.yml
+```
+```yml
+
+# Enable security features
+xpack.security.enabled: false
+
+xpack.security.enrollment.enabled: false
+
+# Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
+xpack.security.http.ssl:
+  enabled: false
+  keystore.path: certs/http.p12
+
+# Enable encryption and mutual authentication between cluster nodes
+xpack.security.transport.ssl:
+  enabled: false
+  verification_mode: certificate
+  keystore.path: certs/transport.p12
+  truststore.path: certs/transport.p12
+
 ```
 
 ### 4. Install Kibana
