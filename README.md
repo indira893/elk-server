@@ -173,6 +173,28 @@ sudo apt update
 sudo apt install logstash -y
 ```
 
+- Installation related information
+```txt
+Selecting previously unselected package logstash.
+(Reading database ... 176858 files and directories currently installed.)
+Preparing to unpack .../logstash_1%3a8.14.3-1_amd64.deb ...
+Unpacking logstash (1:8.14.3-1) ...
+Setting up logstash (1:8.14.3-1) ...
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+```
+
 Start and enable Logstash:
 ```sh
 sudo systemctl enable logstash
@@ -193,7 +215,7 @@ sudo systemctl enable filebeat
 sudo systemctl start filebeat
 ```
 
-#### c. Logstash
+#### Configure Logstash
 Edit the Logstash configuration file:
 ```sh
 sudo nano /etc/logstash/logstash.yml
