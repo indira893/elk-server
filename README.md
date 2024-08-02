@@ -15,7 +15,7 @@ To install the Elastic Stack 8.x (Elasticsearch, Logstash, Kibana, and optionall
 Elasticsearch requires Java. Install OpenJDK:
 ```sh
 sudo apt update
-sudo apt install openjdk-11-jdk -y
+sudo apt install openjdk-17-jdk -y
 ```
 
 ### 2. Install the Elastic Stack APT Repository
