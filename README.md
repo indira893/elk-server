@@ -2,12 +2,16 @@
 ## Installation de Elastic dans ubuntu-22.04
 
 ### A faire avant toute manipulation dès la connexion à la VM
-`sudo -i`
-`apt update`
-`apt upgrade -y`
+```sh
+sudo -i
+apt update
+apt upgrade -y
+```
 
 ### Installations diverses
-`sudo apt install -y curl wget ca-certificates vim apt-transport-https`
+```sh
+sudo apt install -y git curl wget ca-certificates vim apt-transport-https
+```
 
 To install the Elastic Stack 8.x (Elasticsearch, Logstash, Kibana, and optionally Beats) on Ubuntu 22.04 with the dearmor tool, follow these steps:
 
