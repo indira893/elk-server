@@ -313,4 +313,7 @@ By following these steps, you can successfully edit the hosts file in Windows to
 #### Etat de la machine
 `vagrant status`
 
-### Ins
+### Arrêt de la VM
+```sh
+shutdown
+```
