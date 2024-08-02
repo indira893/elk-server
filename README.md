@@ -133,6 +133,27 @@ sudo apt update
 sudo apt install kibana -y
 ```
 
+- Miscellaneous information
+```txt
+Kibana is currently running with legacy OpenSSL providers enabled! For details and instructions on how to disable see https://www.elastic.co/guide/en/kibana/8.14/production.html#openssl-legacy-provider
+Created Kibana keystore in /etc/kibana/kibana.keystore
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+```
+
+
+
 Start and enable Kibana:
 ```sh
 sudo systemctl enable kibana
