@@ -46,6 +46,39 @@ echo "deb [signed-by=/usr/share/keyrings/elastic-archive-keyring.gpg] https://ar
 sudo apt update
 sudo apt install elasticsearch -y
 ```
+- Security related information
+```txt
+Authentication and authorization are enabled.
+TLS for the transport and HTTP layers is enabled and configured.
+
+The generated password for the elastic built-in superuser is : nXgh*8qYCD9JbolwcJlo
+
+If this node should join an existing cluster, you can reconfigure this with
+'/usr/share/elasticsearch/bin/elasticsearch-reconfigure-node --enrollment-token <token-here>'
+after creating an enrollment token on your existing cluster.
+
+You can complete the following actions at any time:
+
+Reset the password of the elastic built-in superuser with
+'/usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic'.
+
+Generate an enrollment token for Kibana instances with
+ '/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana'.
+
+Generate an enrollment token for Elasticsearch nodes with
+'/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s node'.
+
+-------------------------------------------------------------------------------------------------
+### NOT starting on installation, please execute the following statements to configure elasticsearch service to start automatically using systemd
+ sudo systemctl daemon-reload
+ sudo systemctl enable elasticsearch.service
+### You can start elasticsearch service by executing
+ sudo systemctl start elasticsearch.service
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+```
 
 Start and enable Elasticsearch:
 ```sh
@@ -54,6 +87,7 @@ sudo systemctl start elasticsearch
 ```
 
 ### 4. Install Kibana
+- Data visualisation (KQL : to transform data from logstash/filebeat to json payloads)
 ```sh
 sudo apt update
 sudo apt install kibana -y
@@ -78,6 +112,7 @@ sudo systemctl start logstash
 ```
 
 ### 6. Install Beats (optional)
+- Data scraping
 To install Filebeat as an example:
 ```sh
 sudo apt update
