@@ -216,6 +216,64 @@ Start adding data to Elasticsearch and visualize it using Kibana. Configure Logs
 
 By following these steps, you should have a functional Elastic Stack 8.x installation on Ubuntu 22.04.
 
+
+### Modify host file in Windows
+Modifying the hosts file in Windows can be useful for redirecting domain names to specific IP addresses. Here are the steps to edit the hosts file on a Windows machine:
+
+#### 1. Open Notepad as an Administrator
+To modify the hosts file, you need administrative privileges.
+
+1. Press the `Windows` key.
+2. Type `Notepad`.
+3. Right-click on `Notepad` and select `Run as administrator`.
+
+#### 2. Open the Hosts File
+1. In Notepad, go to `File` > `Open`.
+2. Navigate to `C:\Windows\System32\drivers\etc`.
+3. In the file type dropdown, select `All Files` (so you can see files without a `.txt` extension).
+4. Select the `hosts` file and click `Open`.
+
+#### 3. Modify the Hosts File
+Add the desired mappings at the end of the file. The format is:
+```
+<IP address> <hostname>
+```
+For example, to redirect `example.com` to `127.0.0.1`, you would add:
+```
+127.0.0.1 example.com
+```
+You can also add comments by starting a line with `#`.
+
+#### 4. Save the Hosts File
+1. Save the file by clicking `File` > `Save` or pressing `Ctrl + S`.
+2. Close Notepad.
+
+#### 5. Flush DNS Cache (if necessary)
+To ensure the changes take effect immediately, you might need to flush the DNS cache:
+
+1. Press `Windows + R` to open the Run dialog.
+2. Type `cmd` and press `Enter`.
+3. In the Command Prompt window, type the following command and press `Enter`:
+   ```sh
+   ipconfig /flushdns
+   ```
+
+#### Example Hosts File Entry
+Here’s an example of what the hosts file might look like after modification:
+```
+# localhost name resolution is handled within DNS itself.
+#    127.0.0.1       localhost
+#    ::1             localhost
+
+127.0.0.1 example.com
+192.168.1.1 myrouter.local
+```
+
+This file redirects `example.com` to `127.0.0.1` and `myrouter.local` to `192.168.1.1`.
+
+By following these steps, you can successfully edit the hosts file in Windows to manage domain name resolutions on your local machine.
+
+
 ### Commandes Vagrant
 #### Destruction de la machine
 `vagrant destroy -f`
